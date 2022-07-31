@@ -10,14 +10,18 @@ public class Tile : MonoBehaviour
     public string Id;
     public TileMapParent parent;
     [SerializeField] SpriteRenderer spriteRenderer;
+   [SerializeField] UiManager uiManager;
     private void OnMouseUpAsButton()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         Debug.Log(Id);
         EventSO.Raise(this);
         parent.HighlightMe(spriteRenderer);
+        Sprite currentSprite = uiManager.GetComponent<UiManager>().currentSprite;
+        if(currentSprite!=null)
+         parent.UpdateTileRender(spriteRenderer,currentSprite);
     }
-   
+
     void Start()
     {
         tileData = new TileData();
@@ -32,4 +36,5 @@ public class Tile : MonoBehaviour
     {
         tileData.AddBilding(building);
     }
+
 }

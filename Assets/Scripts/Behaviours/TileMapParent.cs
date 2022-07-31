@@ -23,5 +23,9 @@ public class TileMapParent : MonoBehaviour
             oldSpriteRenderer.color = defaulrColor;
         oldSpriteRenderer = current;
     }
-   
+   public void UpdateTileRender(SpriteRenderer current, Sprite updatedSprite)
+    {
+        current.sprite = updatedSprite;
+        Debug.Log("Updated");
+    }
 }

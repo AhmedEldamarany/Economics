@@ -9,6 +9,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] IntSO BuildingCount;
     [SerializeField] IntSO CityCount;
     Tile CurrentTile;
+    [SerializeField]
+    Sprite[] sprites;
+    public Sprite currentSprite;
     public void ShowTileData(Tile tile)
     {
         CurrentTile = tile;
@@ -31,5 +34,10 @@ public class UiManager : MonoBehaviour
         CurrentTile.AddCity(city);
         adding.DisplayTileData(CurrentTile.tileData);
 
+    }
+    public void ChooseCurrentSprite(int spriteIdx)
+    {
+        currentSprite = sprites[spriteIdx];
+        Debug.Log(spriteIdx);
     }
 }
