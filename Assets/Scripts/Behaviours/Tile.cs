@@ -17,9 +17,9 @@ public class Tile : MonoBehaviour
         Debug.Log(Id);
         EventSO.Raise(this);
         parent.HighlightMe(spriteRenderer);
-        Sprite currentSprite = uiManager.GetComponent<UiManager>().currentSprite;
+        Sprite currentSprite = uiManager.currentSprite;
         if(currentSprite!=null)
-         parent.UpdateTileRender(spriteRenderer,currentSprite);
+        spriteRenderer.sprite = currentSprite;
     }
 
     void Start()
