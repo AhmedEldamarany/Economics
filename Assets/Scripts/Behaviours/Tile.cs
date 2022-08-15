@@ -10,16 +10,13 @@ public class Tile : MonoBehaviour
     public string Id;
     public TileMapParent parent;
     [SerializeField] SpriteRenderer spriteRenderer;
-   [SerializeField] UiManager uiManager;
     private void OnMouseUpAsButton()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         Debug.Log(Id);
         EventSO.Raise(this);
         parent.HighlightMe(spriteRenderer);
-        Sprite currentSprite = uiManager.currentSprite;
-        if(currentSprite!=null)
-        spriteRenderer.sprite = currentSprite;
+        
     }
 
     void Start()

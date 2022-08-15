@@ -6,7 +6,8 @@ public class TileMapParent : MonoBehaviour
 {
     SpriteRenderer oldSpriteRenderer;
     [SerializeField] Color defaulrColor;
-    // Start is called before the first frame update
+    [SerializeField] UiManager uiManager;
+    
     void Start()
     {
         Tile[] tiles = gameObject.GetComponentsInChildren<Tile>();
@@ -22,6 +23,10 @@ public class TileMapParent : MonoBehaviour
         if (oldSpriteRenderer != null)
             oldSpriteRenderer.color = defaulrColor;
         oldSpriteRenderer = current;
+       
+        //new for map creator
+        if (uiManager.currentSprite != null)
+            current.sprite = uiManager.currentSprite;
     }
   
 }
